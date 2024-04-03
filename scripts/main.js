@@ -71,40 +71,26 @@ const departments = {
     }
 }
 
-/*
-console.log(departments);
-//1a
-console.log("De afdeling Sales heeft " + departments.sales.numberOfEmployees + " medewerkers");
-//1b
-console.log("Marketing is een leuke afdeling om te werken." + departments.marketing.description);
-//1c
-console.log("De afdeling Customer Service heeft " + departments['customer-service'].numberOfEmployees + " medewerkers");
-//1d
-console.log("Sales is een uitdagende afdeling om te werken als Verkoopmanager. " + departments.sales.jobs[3].description);
-*/
-
-//2
-const userInput = prompt("Over welke afdeling wil je meer informatie? Kies uit: [marketing / sales / customer-service].");
-const selectedDepartment = userInput;
+const selectedDepartment = prompt("Over welke afdeling wil je meer informatie? Kies uit: [marketing / sales / customer-service].");
 
 if (selectedDepartment === "customer-service" || selectedDepartment === "marketing" || selectedDepartment === "sales") {
-    console.log(selectedDepartment + " is een leuke afdeling om te werken. Er werken op dit moment " + departments[selectedDepartment].numberOfEmployees + " medewerkers");
+    document.getElementById("role-title").textContent = selectedDepartment;
+    document.getElementById("department-description").textContent = departments[selectedDepartment].description;
 }
 else {
-    console.error("Ongeldige keuze. Probeer het opnieuw door de pagina te verversen.");
+    document.getElementById("error-message").textContent = "Ongeldige keuze. Probeer het opnieuw door de pagina te verversen.";
 }
 
 //3
-const userInput2 = prompt("Je koos " + selectedDepartment + " Over welke functie wil je meer weten? Voer een getal tussen 0 en 3 in.\
+const selectedJob = prompt("Je koos " + selectedDepartment + " Over welke functie wil je meer weten? Voer een getal tussen 0 en 3 in.\
     0: " + departments.marketing.jobs[0].title + "\
     1: " + departments.marketing.jobs[1].title + ",\
     2: " + departments.marketing.jobs[2].title + ",\
     3: " + departments.marketing.jobs[3].title);
-selectedJob = userInput2;
 
 if (selectedJob === "0" || selectedJob === "1" || selectedJob === "2" || selectedJob === "3") {
-    console.log(departments[selectedDepartment].jobs[selectedJob].description)
+    document.getElementById("role-description").textContent =  departments[selectedDepartment].jobs[selectedJob].description;
 }
 else {
-    console.error("Ongeldige keuze. Probeer het opnieuw door de pagina te verversen.");
+    document.getElementById("error-message").textContent = "Ongeldige keuze. Probeer het opnieuw door de pagina te verversen.";
 }
