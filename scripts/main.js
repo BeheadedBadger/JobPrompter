@@ -71,4 +71,26 @@ const departments = {
     }
 }
 
-console.log(departments);
+const selectedDepartment = prompt("Over welke afdeling wil je meer informatie? Kies uit: [marketing / sales / customer-service].");
+
+if (selectedDepartment === "customer-service" || selectedDepartment === "marketing" || selectedDepartment === "sales") {
+    document.getElementById("role-title").textContent = selectedDepartment;
+    document.getElementById("department-description").textContent = departments[selectedDepartment].description;
+}
+else {
+    document.getElementById("error-message").textContent = "Ongeldige keuze. Probeer het opnieuw door de pagina te verversen.";
+}
+
+//3
+const selectedJob = prompt("Je koos " + selectedDepartment + " Over welke functie wil je meer weten? Voer een getal tussen 0 en 3 in.\
+    0: " + departments.marketing.jobs[0].title + "\
+    1: " + departments.marketing.jobs[1].title + ",\
+    2: " + departments.marketing.jobs[2].title + ",\
+    3: " + departments.marketing.jobs[3].title);
+
+if (selectedJob === "0" || selectedJob === "1" || selectedJob === "2" || selectedJob === "3") {
+    document.getElementById("role-description").textContent =  departments[selectedDepartment].jobs[selectedJob].description;
+}
+else {
+    document.getElementById("error-message").textContent = "Ongeldige keuze. Probeer het opnieuw door de pagina te verversen.";
+}
